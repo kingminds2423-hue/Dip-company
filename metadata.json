@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix DIP BHOLA NETWORK - হিসাব খাতা ও স্টাফ মনিটরিং",
+  "description": "DIP BHOLA NETWORK এর কেন্দ্রীয় দৈনিক আয়-ব্যয় হিসাব, স্টাফ মনিটরিং, পার্টনার অংশীদারি এবং আর্থিক প্রতিবেদন পরিচালন ব্যবস্থা।",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

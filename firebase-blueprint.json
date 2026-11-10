@@ -1,0 +1,152 @@
+{
+  "entities": {
+    "Company": {
+      "title": "Company",
+      "description": "Company profile information",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Company name" },
+        "subTitle": { "type": "string", "description": "Company subtitle" },
+        "ownerName": { "type": "string", "description": "Owner name" },
+        "phone": { "type": "string", "description": "Contact phone" },
+        "email": { "type": "string", "description": "Contact email" },
+        "address": { "type": "string", "description": "Office address" },
+        "logoUrl": { "type": "string", "description": "Logo URL" },
+        "currencySymbol": { "type": "string", "description": "Currency symbol" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp" }
+      },
+      "required": ["name", "ownerName"]
+    },
+    "Partner": {
+      "title": "Partner",
+      "description": "Business partners & equity share records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Partner ID" },
+        "name": { "type": "string", "description": "Partner full name" },
+        "phone": { "type": "string", "description": "Partner phone number" },
+        "role": { "type": "string", "description": "Designation/Role in business" },
+        "investment": { "type": "number", "description": "Total invested BDT" },
+        "sharePercentage": { "type": "number", "description": "Equity share percentage" },
+        "occupation": { "type": "string", "description": "Partner profession / occupation" },
+        "fatherName": { "type": "string", "description": "Partner father's name" },
+        "motherName": { "type": "string", "description": "Partner mother's name" },
+        "address": { "type": "string", "description": "Residential address" },
+        "nidNumber": { "type": "string", "description": "National ID number" },
+        "photoUrl": { "type": "string", "description": "Partner photo data URL or link" },
+        "nidPhotoUrl": { "type": "string", "description": "Partner NID card photo data URL or link" },
+        "fatherNidPhotoUrl": { "type": "string", "description": "Father's NID card photo data URL or link" },
+        "motherNidPhotoUrl": { "type": "string", "description": "Mother's NID card photo data URL or link" },
+        "joinedDate": { "type": "string", "description": "Partnership joined date" },
+        "investmentHistory": { "type": "array", "description": "List of historical investments" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp" }
+      },
+      "required": ["id", "name", "investment"]
+    },
+    "Staff": {
+      "title": "Staff",
+      "description": "Staff and technicians directory with payroll and PINs",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Staff ID" },
+        "name": { "type": "string", "description": "Staff name" },
+        "fatherName": { "type": "string", "description": "Father's name" },
+        "motherName": { "type": "string", "description": "Mother's name" },
+        "phone": { "type": "string", "description": "Phone number" },
+        "email": { "type": "string", "description": "Email address" },
+        "nid": { "type": "string", "description": "National ID number" },
+        "address": { "type": "string", "description": "Residential address" },
+        "designation": { "type": "string", "description": "Designation" },
+        "salary": { "type": "number", "description": "Monthly salary BDT" },
+        "joinedAt": { "type": "string", "description": "Date joined" },
+        "photoUrl": { "type": "string", "description": "Photo data URL or image link" },
+        "pin": { "type": "string", "description": "Staff 4-digit PIN for daily entry login" },
+        "status": { "type": "string", "description": "active or inactive" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp" }
+      },
+      "required": ["id", "name", "salary"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Daily income and expense transactions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Transaction ID" },
+        "type": { "type": "string", "description": "income or expense", "enum": ["income", "expense"] },
+        "date": { "type": "string", "description": "Transaction date YYYY-MM-DD" },
+        "title": { "type": "string", "description": "Description / Purpose" },
+        "category": { "type": "string", "description": "Category name in Bengali" },
+        "amount": { "type": "number", "description": "Amount in BDT" },
+        "paymentMethod": { "type": "string", "description": "cash, bkash, nagad, bank, etc." },
+        "addedBy": { "type": "string", "description": "Name of the person who added this" },
+        "addedById": { "type": "string", "description": "admin or staff-id" },
+        "note": { "type": "string", "description": "Additional note / memo" },
+        "createdAt": { "type": "string", "description": "ISO timestamp of creation" }
+      },
+      "required": ["id", "type", "date", "title", "amount"]
+    },
+    "CustomerDue": {
+      "title": "CustomerDue",
+      "description": "Customer dues and collection records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Due ID" },
+        "customerName": { "type": "string", "description": "Customer full name" },
+        "phone": { "type": "string", "description": "Customer phone" },
+        "address": { "type": "string", "description": "Customer line location/area" },
+        "totalDue": { "type": "number", "description": "Total due amount BDT" },
+        "paidAmount": { "type": "number", "description": "Paid amount BDT" },
+        "currentDue": { "type": "number", "description": "Remaining due BDT" },
+        "notes": { "type": "string", "description": "Notes or package details" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp" }
+      },
+      "required": ["id", "customerName", "totalDue"]
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "System settings and authentication configs",
+      "type": "object",
+      "properties": {
+        "adminPin": { "type": "string", "description": "Admin security PIN" },
+        "adminPhone": { "type": "string", "description": "Admin phone" },
+        "currencySymbol": { "type": "string", "description": "Currency symbol" },
+        "text": { "type": "string", "description": "Notice banner primary line 1 text" },
+        "subText": { "type": "string", "description": "Notice banner secondary line 2 text" },
+        "showClock": { "type": "boolean", "description": "Whether real-time digital clock is shown" },
+        "fontSize": { "type": "string", "description": "Display font size: medium, large, extralarge" },
+        "color": { "type": "string", "description": "Notice color" },
+        "mode": { "type": "string", "description": "Notice animation mode" },
+        "speed": { "type": "string", "description": "Notice speed" },
+        "active": { "type": "boolean", "description": "Notice active flag" },
+        "initialized": { "type": "boolean", "description": "Whether backup has been imported" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp" }
+      }
+    }
+  },
+  "firestore": {
+    "/companies/{companyId}": {
+      "schema": "Company",
+      "description": "Company profile details"
+    },
+    "/partners/{partnerId}": {
+      "schema": "Partner",
+      "description": "Equity partners records"
+    },
+    "/staffs/{staffId}": {
+      "schema": "Staff",
+      "description": "Staff and technicians records"
+    },
+    "/transactions/{transactionId}": {
+      "schema": "Transaction",
+      "description": "Financial transaction ledger"
+    },
+    "/customerDues/{dueId}": {
+      "schema": "CustomerDue",
+      "description": "Customer receivables and dues"
+    },
+    "/settings/{settingId}": {
+      "schema": "Settings",
+      "description": "Global settings and digital notices"
+    }
+  }
+}
